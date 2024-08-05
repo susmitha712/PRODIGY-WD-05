@@ -1,0 +1,83 @@
+
+*{
+    box-sizing: border-box;
+}
+.card{
+    text-align: center;
+    background-image:url("C:/Users/potti/Downloads/pd16.png");
+    padding-bottom: 40px;
+    margin-left: 500px;
+    margin-right: 500px;
+    border-radius:20px;
+    background-size: cover;
+    opacity: 80%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    
+}
+.search{
+    padding-bottom: 50px;
+    padding-top: 50px;
+    text-align: center;
+    display: flex;
+    margin-left: 120px;
+    align-items: center;
+    gap:8px;
+    
+}
+.search input{
+width:200px;
+height: 35px; 
+border-radius: 10px;
+border: 2px solid rgb(4, 206, 206);
+box-sizing: border-box;
+box-shadow: 0 0 20px rgb(4, 206, 206);
+}
+#weather{
+    background: transparent;
+    background: none;
+    background-image: none;
+    background-color: transparent;
+   
+}
+.search img{
+    border-style: 1px solid black;
+    width:18px;
+    height:20px;
+    border-radius: 10px;
+    padding-top: 4px;
+    border-color: black;
+    }
+
+.display{
+    display: flex;
+}
+.weather-info{
+    margin-top: 20px;
+    display: none;
+} 
+.weather-p1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 50px;
+} 
+
+p{
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.col{
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+.col img{
+    margin-right: 10px;
+    padding-bottom: 10px;
+}
+body{
+    margin-top: 20px;
+}

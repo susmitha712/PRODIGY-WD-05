@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="D:\22341A05E3\prodigywd5.css">
+</head>
+<body>
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="enter a city" spellcheck="false">
+            <button><img src="C:\Users\potti\Downloads\pd11.png" class="search-icon"></button>
+        </div>
+        <div class="weather-info">
+            <img src="C:\Users\potti\OneDrive\Documents\weather-app-img[1]\images\snow.png" id="weather" style="width:200px;height: 200px;">
+            <h1 class="temp">22°C</h1>
+            <h2 class="city">New York</h2>
+            <div class="weather-p1">
+                <div class="col">
+                    <img src="C:\Users\potti\OneDrive\Documents\weather-app-img[1]\images\humidity.png" id="p1" style="width: 80px; margin-left: 30px;">
+                    <div>
+                        <h2 class="p3">50%</h2>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="C:\Users\potti\OneDrive\Documents\weather-app-img[1]\images\wind.png" id="p1" style="width: 80px;">
+                    <div>
+                        <h2 class="p4">15 Km/h</h2>
+                        <p>Wind speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const apiKey = "5a27f39aa0c5078ab656b6a4d3849b21";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+        const searchbox = document.querySelector(".search input");
+        const searchBtn = document.querySelector(".search button");
+        const weatherImg = document.querySelector("#weather");
+
+        async function checkWeather(city) {
+            const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+            const data = await response.json();
+
+            document.querySelector(".city").innerHTML = data.name;
+            document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+            document.querySelector(".p3").innerHTML = data.main.humidity + "%";
+            document.querySelector(".p4").innerHTML = data.wind.speed + "km/h";
+
+            if(data.weather[0].main == "Clouds"){
+                weatherImg.src = "C:/Users/potti/OneDrive/Documents/weather-app-img[1]/images/clouds.png";
+            } else if(data.weather[0].main == "Mist"){
+                weatherImg.src = "C:/Users/potti/OneDrive/Documents/weather-app-img[1]/images/mist.png";
+            } else if(data.weather[0].main == "Drizzle"){
+                weatherImg.src = "C:/Users/potti/OneDrive/Documents/weather-app-img[1]/images/drizzle.png";
+            } else if(data.weather[0].main == "Clear"){
+                weatherImg.src = "C:/Users/potti/OneDrive/Documents/weather-app-img[1]/images/clear.png";
+            } else if(data.weather[0].main == "Rain"){
+                weatherImg.src = "C:/Users/potti/OneDrive/Documents/weather-app-img[1]/images/rain.png";
+            } else if(data.weather[0].main == "Snow"){
+                weatherImg.src = "C:/Users/potti/OneDrive/Documents/weather-app-img[1]/images/snow.png";
+            }
+            document.querySelector(".weather-info").style.display="block";
+        }
+
+        searchBtn.addEventListener("click", () => {
+            checkWeather(searchbox.value);
+        });
+    </script>
+</body>
+</html>
